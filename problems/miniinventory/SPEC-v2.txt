@@ -1,6 +1,6 @@
 PROJECT: mini-inventory
 AUTHOR: Tunahan Caner YILDIZ (251478112)
-VERSION: v1
+VERSION: v2
 DATE: 2026-03-29
 
 ========================================
@@ -20,7 +20,7 @@ COMMANDS
 ========================================
 
 --- init ---
-Usage: python solution_v1.py init
+Usage: miniinventory init
 
 Creates a .miniinventory/ directory and an empty inventory.dat file.
 If .miniinventory/ already exists, print "Already initialized" and exit.
@@ -30,7 +30,7 @@ Output:
 - Error: "Already initialized"
 
 --- add ---
-Usage: python solution_v1.py add "Pencil" 50
+Usage: miniinventory add "Pencil" 50
 
 Appends a new product to inventory.dat.
 Each product has:
@@ -47,7 +47,7 @@ Validation rules:
 Output:
 - Success: "Added product #<id>: <name> (<quantity>)"
 - Error if system is not initialized:
-  "Not initialized. Run: python solution_v1.py init"
+  "Not initialized. Run: miniinventory init"
 - Error if quantity is invalid:
   "Invalid quantity"
 - Error if product with the same name already exists:
@@ -55,10 +55,10 @@ Output:
 - Error if name is empty or only whitespace:
   "Invalid product name"
 - Error if arguments are missing:
-  "Usage: python solution_v1.py add <name> <quantity>"
+  "Usage: miniinventory add <name> <quantity>"
 
 --- list ---
-Usage: python solution_v1.py list
+Usage: miniinventory list
 
 Prints all products, one per line, in this format:
 [1] Pencil - Quantity: 50 (2026-03-15)
@@ -72,12 +72,12 @@ Listing rules:
 Output:
 - Success: prints all products in the required format
 - Error if system is not initialized:
-  "Not initialized. Run: python solution_v1.py init"
+  "Not initialized. Run: miniinventory init"
 - Output if inventory is empty:
   "No products found."
 
 --- update ---
-Usage: python solution_v1.py update 1 80
+Usage: miniinventory update 1 80
 
 Updates the quantity of product #1 to 80.
 The given quantity must be a non-negative integer.
@@ -89,12 +89,12 @@ Output:
 - Error if quantity is invalid:
   "Invalid quantity"
 - Error if arguments are missing:
-  "Usage: python solution_v1.py update <id> <quantity>"
+  "Usage: miniinventory update <id> <quantity>"
 - Error if system is not initialized:
-  "Not initialized. Run: python solution_v1.py init"
+  "Not initialized. Run: miniinventory init"
 
 --- delete ---
-Usage: python solution_v1.py delete 1
+Usage: miniinventory delete 1
 
 Removes product #1 from inventory.dat.
 
@@ -103,9 +103,9 @@ Output:
 - Error if product does not exist:
   "Product #1 not found."
 - Error if arguments are missing:
-  "Usage: python solution_v1.py delete <id>"
+  "Usage: miniinventory delete <id>"
 - Error if system is not initialized:
-  "Not initialized. Run: python solution_v1.py init"
+  "Not initialized. Run: miniinventory init"
 
 ========================================
 DATA FORMAT
@@ -133,13 +133,13 @@ ERROR HANDLING
 ========================================
 
 - Running any command before "init":
-  print "Not initialized. Run: python solution_v1.py init"
+  print "Not initialized. Run: miniinventory init"
 
 - Invalid command:
   print "Unknown command: <command>"
 
 - Missing main command:
-  print "Usage: python solution_v1.py <command> [args]"
+  print "Usage: miniinventory <command> [args]"
 
 - Invalid quantity:
   print "Invalid quantity"
@@ -151,10 +151,10 @@ ERROR HANDLING
   print "Product already exists"
 
 ========================================
-VERSION v1 SCOPE
+VERSION v2 SCOPE
 ========================================
 
-The v1 implementation expands the v0 prototype into a usable inventory tool.
+The v2 implementation expands the v1 prototype into a usable inventory tool.
 
 Implemented commands:
 - init
@@ -163,12 +163,13 @@ Implemented commands:
 - update
 - delete
 
-V1 TASKS COMPLETED:
+v2 TASKS COMPLETED:
 1. Implemented the "list" command to display all stored products
 2. Implemented the "update" command to modify product quantity
 3. Implemented the "delete" command to remove a product
 
-V0 -> V1 SUMMARY:
-- v0 supported only initialization and adding products
-- v1 adds full inventory management through list, update, and delete
+v1 -> v2 SUMMARY:
+- v1 supported only initialization and adding products
+- v2 adds full inventory management through list, update, and delete
 - validation rules were clarified to improve consistency and usability
+
